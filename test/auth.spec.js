@@ -117,4 +117,22 @@ describe("User login", function () {
       }
     }
   });
+
+  it("Login without adding password", async () => {
+    try {
+      const payload = {
+        email: "a@gmail.com",
+      };
+
+      const response = await axios.post(API_URL + "/login", payload);
+      expect(response.status).not.to.be.equal(200);
+      expect(response.data).to.be.an("object");
+    } catch (error) {
+      if (error.response) {
+        expect(error.response.status).not.to.be.equal(201);
+      } else {
+        throw error;
+      }
+    }
+  });
 });
