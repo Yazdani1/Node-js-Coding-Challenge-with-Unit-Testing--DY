@@ -75,3 +75,28 @@ exports.userLogin = async (req, res) => {
     res.status(400).json({ error: "Something Went Wrong, Could not Log In" });
   }
 };
+
+
+
+
+// to get all the user list
+
+exports.getAllUser = async (req, res) => {
+  try {
+    const userlist = await User.find().sort({ date: -1 });
+    res.status(200).json(userlist);
+  } catch (error) {
+    res.status(400).json({ error: "Something Went Wrong, Could not Log In" });
+  }
+};
+
+// to get current user role for admin area in frontend side
+
+exports.getCurrentUserRole = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+    res.status(200).json(user);
+  } catch (error) {
+    res.status(400).json({ error: "Something Went Wrong, Could not Log In" });
+  }
+};
