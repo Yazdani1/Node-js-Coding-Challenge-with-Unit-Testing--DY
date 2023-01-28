@@ -77,16 +77,14 @@ exports.userLogin = async (req, res) => {
 };
 
 
-
-
-// to get all the user list
+// to get all the user list and only admin can have access it
 
 exports.getAllUser = async (req, res) => {
   try {
     const userlist = await User.find().sort({ date: -1 });
     res.status(200).json(userlist);
   } catch (error) {
-    res.status(400).json({ error: "Something Went Wrong, Could not Log In" });
+    res.status(400).json({ error: "Something Went Wrong" });
   }
 };
 
@@ -97,6 +95,28 @@ exports.getCurrentUserRole = async (req, res) => {
     const user = await User.findById(req.user._id);
     res.status(200).json(user);
   } catch (error) {
-    res.status(400).json({ error: "Something Went Wrong, Could not Log In" });
+    res.status(400).json({ error: "Something Went Wrong" });
   }
 };
+
+// to delete user account
+
+
+
+exports.deleteUserAccount = async(req,res)=>{
+
+  try {
+    const deleteQuery = { _id: req.params.id };
+    const singleUser = await User.findById(deleteQuery);
+
+    if (!singleUser) {
+      return res.status(400).json({ error: "User could not found" });
+    }
+
+    
+
+  } catch(error){
+    res.status(400).json({ error: "Something Went Wrong" });
+  }
+
+}

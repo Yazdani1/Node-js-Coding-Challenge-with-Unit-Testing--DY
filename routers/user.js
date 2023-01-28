@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { userRegistration, userLogin,getAllUser,getCurrentUserRole } = require("../controllers/user");
+const { userRegistration, userLogin,getAllUser,getCurrentUserRole,deleteUserAccount } = require("../controllers/user");
 
 const {requireLogin,isAdmin} = require("../middleware/auth");
 
@@ -19,6 +19,8 @@ router.get("/alluser",requireLogin,isAdmin,getAllUser);
 
 router.get("/current-user-role",requireLogin,isAdmin,getCurrentUserRole);
 
+// admin can delete user account
 
+router.delete("/delete-user/:id",requireLogin,isAdmin,deleteUserAccount);
 
 module.exports = router;
