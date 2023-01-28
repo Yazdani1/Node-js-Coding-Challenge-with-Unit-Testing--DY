@@ -16,13 +16,13 @@ exports.createPlayerList = async (req, res) => {
       return res.status(422).json({ error: "please add palyer jersey number" });
     }
 
-    // const alreadyExist = await Player.findOne({ jerseyNumber });
+    const alreadyExist = await Player.findOne({ jerseyNumber });
 
-    // if (alreadyExist) {
-    //   return res
-    //     .status(422)
-    //     .json({ error: "jersey number already exit. try a new one" });
-    // }
+    if (alreadyExist) {
+      return res
+        .status(422)
+        .json({ error: "jersey number already exit. try a new one" });
+    }
 
     const playerDetails = Player({
       name,
