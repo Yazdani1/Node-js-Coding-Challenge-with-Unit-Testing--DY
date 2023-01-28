@@ -76,7 +76,6 @@ exports.userLogin = async (req, res) => {
   }
 };
 
-
 // to get all the user list and only admin can have access it
 
 exports.getAllUser = async (req, res) => {
@@ -99,12 +98,9 @@ exports.getCurrentUserRole = async (req, res) => {
   }
 };
 
-// to delete user account
+// to delete user account- only admin can do it..
 
-
-
-exports.deleteUserAccount = async(req,res)=>{
-
+exports.deleteUserAccount = async (req, res) => {
   try {
     const deleteQuery = { _id: req.params.id };
     const singleUser = await User.findById(deleteQuery);
@@ -113,10 +109,10 @@ exports.deleteUserAccount = async(req,res)=>{
       return res.status(400).json({ error: "User could not found" });
     }
 
-    
+    const deleteuser = await User.findByIdAndDelete(deleteQuery);
 
-  } catch(error){
+    res.status(200).json(deleteuser);
+  } catch (error) {
     res.status(400).json({ error: "Something Went Wrong" });
   }
-
-}
+};

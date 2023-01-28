@@ -19,7 +19,7 @@ router.get("/alluser",requireLogin,isAdmin,getAllUser);
 
 router.get("/current-user-role",requireLogin,isAdmin,getCurrentUserRole);
 
-// admin can delete user account
+// only admin can delete user account
 
 router.delete("/delete-user/:id",requireLogin,isAdmin,deleteUserAccount);
 
