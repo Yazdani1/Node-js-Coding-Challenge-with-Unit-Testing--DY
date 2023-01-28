@@ -14,7 +14,7 @@ describe("User registration", function () {
     it("Create user account with correct payload", async () => {
       const payload = {
         teamname: "Argentina",
-        email: "fsd454@gmail.com",
+        email: "dfg56@gmail.com",
         password: "123456",
       };
 

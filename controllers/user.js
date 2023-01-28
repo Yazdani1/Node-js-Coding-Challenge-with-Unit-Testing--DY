@@ -5,7 +5,7 @@ require("dotenv").config();
 
 // to register
 exports.userRegistration = async (req, res) => {
-  const { teamname, email, password } = req.body;
+  const { teamname, email, password,role } = req.body;
 
   try {
 
@@ -32,6 +32,7 @@ exports.userRegistration = async (req, res) => {
     userDetails = new User({
       teamname,
       email,
+      role,
       password: hash_password,
     });
 
