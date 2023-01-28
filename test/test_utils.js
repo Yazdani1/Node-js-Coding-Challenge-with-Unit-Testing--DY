@@ -7,7 +7,7 @@ const API_URL = "http://localhost:8080/api";
  const headerConfig = () => {
     return {
       headers: {
-        Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Q1MmU3NjlmNWNmYmJkZDIxOWEzODciLCJpYXQiOjE2NzQ5Mjk5NDksImV4cCI6MTY3NTAxNjM0OX0.Teul79fLnmuIFjHVmw_j-Vw2nmhligY4zFNgh9_vSH8"}`,
+        Authorization: `Bearer ${"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2Q1MmU3NjlmNWNmYmJkZDIxOWEzODciLCJpYXQiOjE2NzQ5MzM2NTgsImV4cCI6MTY3NTAyMDA1OH0.72WhfP2Zpl_o4vsgsdBgrzOEjntfHlIw2fkOD3zuXkw"}`,
       },
     };
   };

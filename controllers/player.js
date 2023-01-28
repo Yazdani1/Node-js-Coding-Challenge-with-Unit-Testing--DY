@@ -3,9 +3,11 @@ const ObjectId = require("mongoose").Types.ObjectId;
 
 
 exports.createPlayerList = async (req, res) => {
+
   const { name, jerseyNumber } = req.body;
 
   try {
+
     if (!name) {
       return res.status(422).json({ error: "please add palyer name" });
     }
@@ -14,13 +16,13 @@ exports.createPlayerList = async (req, res) => {
       return res.status(422).json({ error: "please add palyer jersey number" });
     }
 
-    const alreadyExist = await Player.findOne({ jerseyNumber });
+    // const alreadyExist = await Player.findOne({ jerseyNumber });
 
-    if (alreadyExist) {
-      return res
-        .status(422)
-        .json({ error: "jersey number already exit. try a new one" });
-    }
+    // if (alreadyExist) {
+    //   return res
+    //     .status(422)
+    //     .json({ error: "jersey number already exit. try a new one" });
+    // }
 
     const playerDetails = Player({
       name,

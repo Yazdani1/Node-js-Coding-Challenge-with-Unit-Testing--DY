@@ -5,13 +5,10 @@ var playerSchema = mongoose.Schema({
     
   name: {
     type: String,
-    required: true,
-
   },
 
   jerseyNumber: {
     type: Number,
-    required: true,
   },
   postedBy: {
     type: ObjectId,
