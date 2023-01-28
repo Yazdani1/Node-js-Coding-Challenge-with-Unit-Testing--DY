@@ -5,21 +5,20 @@ require("dotenv").config();
 
 // to register
 exports.userRegistration = async (req, res) => {
+  const { teamname, email, password } = req.body;
+
   try {
-    const { teamname, email, password, role } = req.body;
 
     if (!teamname) {
-      return res
-        .status(400)
-        .json({ error: "Please Add Your Favourite Teamname" });
+      return res.status(422).json({ error: "please add team name" });
     }
+
+
     if (!email) {
-      return res
-        .status(400)
-        .json({ error: "Please Add Your valid E-mail Address" });
+      return res.status(422).json({ error: "please add email" });
     }
     if (!password) {
-      return res.status(400).json({ error: "Please Add Your Password" });
+      return res.status(422).json({ error: "please add password" });
     }
 
     let user = await User.findOne({ email });
@@ -33,7 +32,6 @@ exports.userRegistration = async (req, res) => {
     userDetails = new User({
       teamname,
       email,
-      role,
       password: hash_password,
     });
 
@@ -44,14 +42,15 @@ exports.userRegistration = async (req, res) => {
       .json({ createUserAccount, message: "Account Created Successfully" });
   } catch (error) {
     res.status(400).json({ error: "Account could not create" });
+    console.log(error)
   }
 };
 
 // to log in
 exports.userLogin = async (req, res) => {
-  try {
-    const { email, password } = req.body;
+  const { email, password } = req.body;
 
+  try {
     if (!email) {
       return res.status(400).json({ error: "add your register email" });
     }

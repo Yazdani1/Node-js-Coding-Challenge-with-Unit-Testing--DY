@@ -10,28 +10,30 @@ const { API_URL } = require("./test_utils");
 /****************************************/
 
 describe("User registration", function () {
-  //   it("Create user account with correct payload", async () => {
-  //     const payload = {
-  //       teamname: "Belgium",
-  //       email: "fff78@gmail.com",
-  //       password: "123456",
-  //     };
 
-  //     const response = await axios.post(API_URL + "/registration", payload);
-  //     expect(response.status).to.be.equal(201);
-  //     expect(response.data).to.be.an("object");
-  //   });
+    it("Create user account with correct payload", async () => {
+      const payload = {
+        teamname: "Argentina",
+        email: "fsd454@gmail.com",
+        password: "123456",
+      };
+
+      const response = await axios.post(API_URL + "/registration", payload);
+      expect(response.status).to.be.equal(201);
+      expect(response.data).to.be.an("object");
+    });
 
   it("Create user account without adding teamname ", async () => {
     try {
       const payload = {
-        email: "be4545l@gmail.com",
-        password: "123456",
+        email: "dsfds7878@gmail.com",
+        password: "123566456",
       };
 
       const response = await axios.post(API_URL + "/registration", payload);
 
       expect(response.status).not.to.be.equal(201);
+      console.log(response.status);
       expect(response.data).to.be.an("object");
     } catch (error) {
       if (error.response) {
@@ -45,7 +47,7 @@ describe("User registration", function () {
   it("Create user account without adding email ", async () => {
     try {
       const payload = {
-        teamname: "Belgium",
+        teamname: "gffg",
         password: "123456",
       };
 
@@ -66,7 +68,7 @@ describe("User registration", function () {
     try {
       const payload = {
         teamname: "Belgium",
-        email: "bvc656@gmail.com",
+        email: "uiiui78@gmail.com",
       };
 
       const response = await axios.post(API_URL + "/registration", payload);
