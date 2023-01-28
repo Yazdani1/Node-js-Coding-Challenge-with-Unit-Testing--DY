@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "start": "nodemon app.js",
-    "test":"mocha",
-    "single":"mocha"
+    "test":"mocha 'test'",
+    "single":"mocha",
+    "test-report":"mocha 'test' --reporter mochawesome --require mochawesome/register"
   },
   "author": "Yazdani Chowdhury",
   "license": "ISC",
