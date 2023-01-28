@@ -16,6 +16,8 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/api",require("./routers/user"));
+app.use("/api",require("./routers/player"));
+
 // app.use("/api",require("./router/ExpenseBook"));
 // app.use("/api",require("./router/ExpenseCategory"));
 // app.use("/api",require("./router/ExpenseList"));
